@@ -44,10 +44,11 @@ console.log(continent);
 console.log(population);
 */
 
+
 // ================================================================================================================
 // Data Types
 // ================================================================================================================
-
+/*
 let javascriptIsFun = true;
 console.log(javascriptIsFun);
 console.log(typeof javascriptIsFun);
@@ -66,4 +67,22 @@ console.log(year);
 console.log(typeof year);
 
 // object type - a exception/bug in javascript
-console.log(typeof null);
+console.log(typeof null); 
+*/
+
+// ================================================================================================================
+// let, const and var
+// ================================================================================================================
+
+let age = 30;
+age = 31; // reassigning/mutating
+
+const birthYear = 1991;
+// birthYear = 1990; // does not mutate
+
+var hello = 'hello';
+hello = true;
+
+lastName = "Kumar";
+
+
