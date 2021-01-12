@@ -12,6 +12,7 @@ console.log(40 + 8 + 23 - 10);
 // ================================================================================================================
 // Values and variables
 // ================================================================================================================
+/*
 let js = "amazing";
 console.log(40 + 8 + 23 - 10);
 
@@ -41,3 +42,28 @@ let population = 9876543210;
 console.log(country);
 console.log(continent);
 console.log(population);
+*/
+
+// ================================================================================================================
+// Data Types
+// ================================================================================================================
+
+let javascriptIsFun = true;
+console.log(javascriptIsFun);
+console.log(typeof javascriptIsFun);
+
+console.log(typeof true);
+console.log(typeof 23); 
+console.log(typeof 'Jonas'); 
+
+// Dynamic typing
+javascriptIsFun = "Yes";
+console.log(typeof javascriptIsFun);
+
+// undefined type
+let year;
+console.log(year);
+console.log(typeof year);
+
+// object type - a exception/bug in javascript
+console.log(typeof null);
