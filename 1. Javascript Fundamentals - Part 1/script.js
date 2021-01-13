@@ -125,7 +125,7 @@ console.log(now - 1991 < now - 2018);
 // ================================================================================================================
 // Operator Precedence
 // ================================================================================================================
-
+/*
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
@@ -139,3 +139,28 @@ let x, y;
 x = y = 25 - 10 - 5;
 
 console.log(x, y);
+*/
+
+// ================================================================================================================
+// Strings and Template Literals
+// ================================================================================================================
+
+const firstName = 'Jonas';
+const job = 'teacher';
+const birthYear = 1991;
+const year = 2037;
+
+// Normal String
+const jonas = "I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
+console.log(jonas);
+
+// Template Literal
+const jonasNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+console.log(jonasNew);
+
+const newLineString = 'This is \n a new Line';
+console.log(newLineString);
+
+const newLineTemplate = `This is 
+another new line`;
+console.log(newLineTemplate);
