@@ -144,7 +144,7 @@ console.log(x, y);
 // ================================================================================================================
 // Strings and Template Literals
 // ================================================================================================================
-
+/*
 const firstName = 'Jonas';
 const job = 'teacher';
 const birthYear = 1991;
@@ -164,3 +164,22 @@ console.log(newLineString);
 const newLineTemplate = `This is 
 another new line`;
 console.log(newLineTemplate);
+*/
+
+
+// ================================================================================================================
+// If else statements
+// ================================================================================================================
+
+const age = 19;
+
+const isOldEnough = age >= 18;
+
+if(age < 0){
+    console.log('Let Sarah born first');
+} else if(isOldEnough){
+    console.log("Sarah can start driving license 🚗")
+} else {
+    const yearLeft = 18 - age;
+    console.log(`Sarah is too young. Wait another ${yearLeft} years.`);
+}
