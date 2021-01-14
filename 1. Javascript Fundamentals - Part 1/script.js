@@ -170,7 +170,7 @@ console.log(newLineTemplate);
 // ================================================================================================================
 // If else statements
 // ================================================================================================================
-
+/*
 const age = 19;
 
 const isOldEnough = age >= 18;
@@ -183,3 +183,25 @@ if(age < 0){
     const yearLeft = 18 - age;
     console.log(`Sarah is too young. Wait another ${yearLeft} years.`);
 }
+*/
+
+// ================================================================================================================
+// Type Conversion and Coercion
+// ================================================================================================================
+
+//Type Conversion
+const inputYear = '1996';
+console.log(inputYear + 18);
+console.log(Number(inputYear) + 18);
+console.log(Number('Jonas'));
+console.log(typeof NaN);
+console.log(String(19) + String(96));
+
+//Type Coercion
+console.log('I am ' + 23 + ' years old');
+console.log('23' - '10' - 3);
+console.log('23' + '10' + 3);
+console.log('10' * '23');
+console.log('23' > '19');
+console.log(2+3+4+'5');
+console.log('10'-'4'-'3'-2+'5');
