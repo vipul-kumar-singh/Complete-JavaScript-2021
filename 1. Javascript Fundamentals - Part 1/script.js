@@ -188,7 +188,7 @@ if(age < 0){
 // ================================================================================================================
 // Type Conversion and Coercion
 // ================================================================================================================
-
+/*
 //Type Conversion
 const inputYear = '1996';
 console.log(inputYear + 18);
@@ -205,3 +205,34 @@ console.log('10' * '23');
 console.log('23' > '19');
 console.log(2+3+4+'5');
 console.log('10'-'4'-'3'-2+'5');
+*/
+
+// ================================================================================================================
+// Truthy and Falsy Values
+// ================================================================================================================
+
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('Jonas'));
+console.log(Boolean({}));
+console.log(Boolean(''));
+
+//Type coercion
+const money = 0;
+if(money){
+    console.log('Good');
+} else {
+    console.log('Empty');
+}
+
+let height;
+if(height)
+    console.log('Height is defined');
+else
+    console.log('Height is undefined');
+
+height = 0;
+if(height)
+    console.log('Height is defined');
+else
+    console.log('Height is undefined');
