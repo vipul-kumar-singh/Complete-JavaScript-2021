@@ -259,7 +259,7 @@ console.log('18' != 18);
 // ================================================================================================================
 // Prompt
 // ================================================================================================================
-
+/*
 const age = prompt("What is your age?");
 console.log(age);
 console.log(typeof age);
@@ -267,3 +267,28 @@ console.log(typeof age);
 //default input
 const favourite = prompt("What is your favourite programming language?" , "Javascript");
 console.log(favourite);
+*/
+
+
+// ================================================================================================================
+// Logical Operators
+// ================================================================================================================
+
+const trueValue = true;
+const falseValue = false;
+
+//AND
+console.log(trueValue && trueValue);
+console.log(trueValue && falseValue);
+console.log(falseValue && trueValue);
+console.log(falseValue && falseValue);
+
+//OR
+console.log(trueValue || trueValue);
+console.log(trueValue || falseValue);
+console.log(falseValue || trueValue);
+console.log(falseValue || falseValue);
+
+//NOT
+console.log(!trueValue);
+console.log(!falseValue);
