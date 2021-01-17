@@ -158,7 +158,7 @@ console.log(jonas);
 // ================================================================================================================
 // Basic Array Operations (Methods)
 // ================================================================================================================
-
+/*
 const friends = ['Michael', 'Steven', 'Peter'];
 console.log(friends);
 
@@ -191,3 +191,16 @@ console.log(friends.includes('Bob'));
 friends.push(23);
 console.log(friends.includes('23'));
 console.log(friends.indexOf('23'));
+*/
+
+// ================================================================================================================
+// Introduction to Objects
+// ================================================================================================================
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven']
+};
+console.log(jonas);
