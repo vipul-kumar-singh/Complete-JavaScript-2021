@@ -196,6 +196,7 @@ console.log(friends.indexOf('23'));
 // ================================================================================================================
 // Introduction to Objects
 // ================================================================================================================
+/*
 const jonas = {
     firstName: 'Jonas',
     lastName: 'Schmedtmann',
@@ -204,3 +205,26 @@ const jonas = {
     friends: ['Michael', 'Peter', 'Steven']
 };
 console.log(jonas);
+*/
+
+// ================================================================================================================
+// Dot vs Bracket Annotation
+// ================================================================================================================
+
+const vipul = {
+    firstName: 'Vipul',
+    lastName: 'Kumar',
+    age: 2021 - 1996,
+    job: 'CEO',
+    friends: ['CJ', 'Surya', 'Ghoshit']
+};
+console.log(vipul);
+
+console.log(vipul.lastName);
+console.log(vipul['lastName']);
+
+const nameKey = 'Name';
+console.log(vipul['first' + nameKey]);
+console.log(vipul['last' + nameKey]);
+
+console.log(`${vipul.firstName} has ${vipul.friends.length} friends, and his best friend is called ${vipul.friends[0]}`);
