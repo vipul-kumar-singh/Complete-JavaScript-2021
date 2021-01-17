@@ -210,7 +210,7 @@ console.log(jonas);
 // ================================================================================================================
 // Dot vs Bracket Annotation
 // ================================================================================================================
-
+/*
 const vipul = {
     firstName: 'Vipul',
     lastName: 'Kumar',
@@ -228,3 +228,48 @@ console.log(vipul['first' + nameKey]);
 console.log(vipul['last' + nameKey]);
 
 console.log(`${vipul.firstName} has ${vipul.friends.length} friends, and his best friend is called ${vipul.friends[0]}`);
+*/
+
+
+// ================================================================================================================
+// Object Methods
+// ================================================================================================================
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    calcAge: function (birthYear) {
+        return 2037 - birthYear;
+    },
+
+    //use of this keyword
+    calcAge1: function () {
+        return 2037 - this.birthYear;
+    },
+
+    setAge: function(age){
+        this.age = age;
+    },
+
+    toString: function () {
+        return `${this.firstName} is a ${this.calcAge1()}-year old ${jonas.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`
+    }
+
+}
+
+console.log(jonas.calcAge(1995));
+console.log(jonas.calcAge1());
+
+// updattion in objects
+jonas.firstName = 'Vipul';
+console.log(jonas);
+
+jonas.setAge(23);
+console.log(jonas);
+
+console.log(jonas.toString());
