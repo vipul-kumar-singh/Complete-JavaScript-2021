@@ -126,6 +126,7 @@ console.log(fruitProcessor(2, 3));
 // Arrays
 // ================================================================================================================
 
+/*
 const friend1 = 'Michael';
 const friend2 = 'Steven';
 const friend3 = 'Peter';
@@ -151,3 +152,42 @@ console.log(friends);
 const firstName = 'Jonas';
 const jonas = [firstName, 'Schmedtmann', 2037 - 1991, true, friends];
 console.log(jonas);
+*/
+
+
+// ================================================================================================================
+// Basic Array Operations (Methods)
+// ================================================================================================================
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+// push -> add element to end of array
+const newLength = friends.push('Jay');
+console.log(friends);
+console.log(newLength);
+
+// unshift -> add element to beginning of array
+friends.unshift('John');
+console.log(friends);
+
+// pop -> removes an element from the end of array
+const popped = friends.pop();
+console.log(popped);
+
+// shift -> removes an element from the beginning of array
+friends.shift();
+console.log(friends);
+
+// indexOf -> returns index of element, else returns -1
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Bob'));
+
+// incudes -> returns true if element found in an array, else returns false
+console.log(friends.includes('Steven'));
+console.log(friends.includes('Bob'));
+
+// includes uses strict equality
+friends.push(23);
+console.log(friends.includes('23'));
+console.log(friends.indexOf('23'));
