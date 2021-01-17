@@ -106,7 +106,7 @@ console.log(yearsUntilRetirement(1991, 'Jonas')); console.log(yearsUntilRetireme
 // ================================================================================================================
 // Functions Calling Other Functions
 // ================================================================================================================
-
+/*
 function cutFruitPieces(fruit) {
     return fruit * 4;
 }
@@ -119,3 +119,35 @@ const juice = `Juice with ${applePieces} piece of apple and ${orangePieces} piec
     return juice;
 }
 console.log(fruitProcessor(2, 3));
+*/
+
+
+// ================================================================================================================
+// Arrays
+// ================================================================================================================
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+// Initializing #1
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+// Initializing #2
+const y = new Array(1991, 1984, 2008, 2020);
+
+// Accessing elements
+console.log(friends[0]);
+console.log(friends[2]);
+
+// Properties of arrays
+console.log(friends.length);
+
+friends[2] = 'Jay';
+console.log(friends);
+
+//Heterogenous Array
+const firstName = 'Jonas';
+const jonas = [firstName, 'Schmedtmann', 2037 - 1991, true, friends];
+console.log(jonas);
