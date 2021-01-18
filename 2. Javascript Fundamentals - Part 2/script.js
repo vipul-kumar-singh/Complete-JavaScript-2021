@@ -279,7 +279,51 @@ console.log(jonas.toString());
 // ================================================================================================================
 // For Loop
 // ================================================================================================================
-
+/*
 for(let i = 0 ; i< 10; i++){
     console.log(`Lifting weights repitition ${i+1} 🏋️‍♂️`);
+}
+*/
+
+
+// ================================================================================================================
+// Looping Arrays, Breaking and Continuing
+// ================================================================================================================
+
+const jonas = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true
+];
+
+//empty array
+const types = [];
+
+for (let i = 0; i < jonas.length; i++) {
+    console.log(jonas[i], typeof jonas[i]);
+
+    types.push(typeof jonas[i]);
+}
+
+console.log(types)
+
+
+// continue
+console.log('--- ONLY STRINGS ---')
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] !== 'string')
+        continue;
+
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+// break
+console.log('--- BREAK WITH NUMBER ---')
+for (let i = 0; i < jonas.length; i++) {
+  if (typeof jonas[i] === 'number') break;
+
+  console.log(jonas[i], typeof jonas[i]);
 }
