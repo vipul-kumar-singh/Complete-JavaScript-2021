@@ -333,7 +333,7 @@ for (let i = 0; i < jonas.length; i++) {
 // ================================================================================================================
 // Looping Backwards and Nested Loops
 // ================================================================================================================
-
+/*
 const jonas = [
     'Jonas',
     'Schmedtmann',
@@ -355,4 +355,24 @@ for (let exercise = 1; exercise < 4; exercise++) {
     for (let rep = 1; rep < 6; rep++) {
         console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋️‍♀️`);
     }
+}
+*/
+
+// ================================================================================================================
+// While Loop
+// ================================================================================================================
+
+let i = 0;
+while(i < 10){
+    console.log(`Lifting weights repitition ${i}`);
+    i++;
+}
+
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log('Loop is about to end...');
 }
