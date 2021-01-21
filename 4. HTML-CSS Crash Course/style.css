@@ -1,0 +1,17 @@
+/* CSS for element */
+body {
+  background-color: rgb(255, 247, 201);
+  font-family: Arial;
+  font-size: 15px;
+}
+
+/* CSS for class */
+.first {
+  color: red;
+}
+
+/* CSS for id */
+#your-name {
+  background-color: rgb(255, 220, 105);
+  border: 5px solid #444;
+}
