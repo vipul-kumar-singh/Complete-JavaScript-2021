@@ -1,8 +1,16 @@
+/* CSS for every element on web page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* CSS for element */
 body {
   background-color: rgb(255, 247, 201);
   font-family: Arial;
   font-size: 15px;
+  padding: 50px;
 }
 
 /* CSS for class */
@@ -14,4 +22,42 @@ body {
 #your-name {
   background-color: rgb(255, 220, 105);
   border: 5px solid #444;
+  width: 400px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 25px;
+  padding: 5px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Css on multiple elements */
+input,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+a {
+  background-color: yellowgreen;
+}
+
+/* Css on nested elements */
+#your-name h2 {
+  color: olive;
+}
+
+#course-image {
+  width: 400px;
 }
