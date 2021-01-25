@@ -93,7 +93,7 @@ console.log(z === window.z);
 // ================================================================================================================
 // this Keyword in Practice
 // ================================================================================================================
-
+/*
 // Outer most this keyword points to 'window' object
 console.log(this);
 
@@ -136,3 +136,55 @@ matilda.calcAge();
 // Here window object is calling the method, hence the this keyword will be undefined in strict mode and 'window' in loose mode
 const f = jonas.calcAge;
 f();
+*/
+
+// ================================================================================================================
+// Regular Functions vs Arrow Functions
+// ================================================================================================================
+
+var firstName = 'Matilda';
+
+const jonas = {
+  firstName: 'jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+
+    // Solution 1
+    // const self = this;
+    // const isMillenial = function() {
+    //     console.log(self);
+    //     // console.log(this.year >= 1981 && this.year <= 1996);
+    //     console.log(self.year >= 1981 && self.year <= 1996);
+    // }
+    // isMillenial();
+
+    // Solution 2
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+jonas.greet();
+jonas.calcAge();
+
+// arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 9);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 4, 5);
