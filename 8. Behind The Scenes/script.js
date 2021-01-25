@@ -45,7 +45,7 @@ calcAge(1991);
 // ================================================================================================================
 // Hoisting in Practice
 // ================================================================================================================
-
+/*
 // Variables
 console.log(me);
 // console.log(job);
@@ -88,3 +88,51 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+*/
+
+// ================================================================================================================
+// this Keyword in Practice
+// ================================================================================================================
+
+// Outer most this keyword points to 'window' object
+console.log(this);
+
+// Inside regular function, this keyword is not initialized in strict mode and  will point to window object in sloppy mode
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this); // logs undefined
+};
+calcAge(1991);
+
+// The arrow function does not gets its own this keyword and access the this keyword of parent object (here window)
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+calcAgeArrow(1980);
+
+// Inside an object, the 'this' for the regular function keyword points to the object calling this method
+// The arrow function does not gets its own this keyword and access the this keyword of parent object (here window)
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+  },
+  printName: () => {
+    console.log(this);
+  }
+};
+jonas.calcAge();
+jonas.printName();
+
+const matilda = {
+  year: 2017,
+};
+
+// Method Borrowing, now in this case, function calling is done by matilda, hence, the this keyword will point to matilda
+matilda.calcAge = jonas.calcAge;
+matilda.calcAge();
+
+// Here window object is calling the method, hence the this keyword will be undefined in strict mode and 'window' in loose mode
+const f = jonas.calcAge;
+f();
