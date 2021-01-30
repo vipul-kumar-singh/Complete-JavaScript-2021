@@ -396,6 +396,7 @@ for (const [day, { open, close }] of entries) {
 // ================================================================================================================
 // Sets
 // ================================================================================================================
+/*
 const ordersSet = new Set([
   'Pasta',
   'Pizza',
@@ -424,3 +425,54 @@ for (const order of ordersSet) console.log(order);
 const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 const staffUnique = [...new Set(staff)];
 console.log(staffUnique);
+*/
+
+// ================================================================================================================
+// Maps
+// ================================================================================================================
+
+// New Map
+const rest = new Map();
+
+// set() method
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.set('open', 12));
+
+// get() method
+console.log(rest.get('name'));
+console.log(rest.get(true));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// has() method
+console.log(rest.has('categories'));
+
+// delete() method
+rest.delete(2);
+
+// clear() method
+// rest.clear();
+
+// array as keys
+const arr = [1, 2];
+rest.set(arr, 'Test');
+
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get([1, 2])); // Not work because both arrays are different objects
+console.log(rest.get(arr));
+
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
