@@ -252,7 +252,7 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 // ================================================================================================================
 // Nullish Coalescing Operator (??)
 // ================================================================================================================
-
+/*
 restaurant.numGuests = 0;
 const guests1 = restaurant.numGuests || 10;
 console.log(guests1);
@@ -262,3 +262,22 @@ const guests2 = restaurant.numGuests ?? 10;
 console.log(guests2);
 
 console.log(undefined ?? false);
+*/
+
+// ================================================================================================================
+// Looping Arrays: The for-of Loop
+// ================================================================================================================
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const item of menu.entries()) {
+  console.log(item);
+}
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+console.log([...menu.entries()]);
