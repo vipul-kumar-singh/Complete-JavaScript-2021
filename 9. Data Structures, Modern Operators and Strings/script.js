@@ -181,7 +181,7 @@ console.log(restaurant.name);
 // ================================================================================================================
 // Rest Pattern and Parameters
 // ================================================================================================================
-
+/*
 // Spread, because on right side of =
 const arr = [1, 2, ...[3, 4]];
 
@@ -214,3 +214,36 @@ add(...x);
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
+*/
+
+// ================================================================================================================
+// Short Circuiting (&& and ||)
+// ================================================================================================================
+
+// OR (||)
+console.log('---- OR ----');
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || null || 0 || false);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// AND (&&)
+console.log('---- AND ----');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
