@@ -219,7 +219,7 @@ restaurant.orderPizza('mushrooms');
 // ================================================================================================================
 // Short Circuiting (&& and ||)
 // ================================================================================================================
-
+/*
 // OR (||)
 console.log('---- OR ----');
 console.log(3 || 'Jonas');
@@ -247,3 +247,18 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+*/
+
+// ================================================================================================================
+// Nullish Coalescing Operator (??)
+// ================================================================================================================
+
+restaurant.numGuests = 0;
+const guests1 = restaurant.numGuests || 10;
+console.log(guests1);
+
+// Nullish: null and undefined (NOT 0, '' or false)
+const guests2 = restaurant.numGuests ?? 10;
+console.log(guests2);
+
+console.log(undefined ?? false);
