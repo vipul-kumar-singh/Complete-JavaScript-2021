@@ -364,11 +364,10 @@ const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
 console.log(users[0]?.name ?? 'User array empty');
 */
 
-
 // ================================================================================================================
 // Looping Objects: Object Keys, Values, and Entries
 // ================================================================================================================
-
+/*
 const openingHours = restaurant.openingHours;
 
 const properties = Object.keys(openingHours);
@@ -392,3 +391,36 @@ console.log(entries);
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
+*/
+
+// ================================================================================================================
+// Sets
+// ================================================================================================================
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+
+console.log(new Set('Mississipi'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+//Looping
+for (const order of ordersSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
