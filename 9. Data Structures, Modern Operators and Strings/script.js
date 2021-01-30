@@ -267,7 +267,7 @@ console.log(undefined ?? false);
 // ================================================================================================================
 // Looping Arrays: The for-of Loop
 // ================================================================================================================
-
+/*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 for (const item of menu) console.log(item);
@@ -281,3 +281,53 @@ for (const [i, el] of menu.entries()) {
 }
 
 console.log([...menu.entries()]);
+*/
+
+// ================================================================================================================
+// Enhanced Object Literals
+// ================================================================================================================
+
+// 1. Nested objects
+const obj1 = {
+  name: 'Object 1',
+  value: 10,
+};
+
+const obj2 = {
+  name: 'Object 2',
+  value: 20,
+  obj1,
+};
+
+console.log(obj2);
+
+// 2. Function expressions
+
+const obj3 = {
+  name: 'Object 3',
+  value: 20,
+
+  add(a, b) {
+    return a + b;
+  },
+};
+
+console.log(obj3.add(2, 4));
+
+// 3. Compute Property Names
+
+const weekdays = ['mon', 'tue', 'wed'];
+const obj4 = {
+  openingHours: {
+    [weekdays[1]]: {
+      open: 12,
+      close: 22,
+    },
+    [`day-${2 + 4}`]: {
+      open: 0,
+      close: 20,
+    },
+  },
+};
+
+console.log(obj4);
