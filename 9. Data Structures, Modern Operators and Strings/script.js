@@ -430,7 +430,7 @@ console.log(staffUnique);
 // ================================================================================================================
 // Maps
 // ================================================================================================================
-
+/*
 // New Map
 const rest = new Map();
 
@@ -476,3 +476,43 @@ console.log(rest.get(arr));
 
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest);
+*/
+
+// ================================================================================================================
+// Map Iteration
+// ================================================================================================================
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+// Convert Object to map
+const hoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(hoursMap);
+
+// Quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Option ${key} : ${value}`);
+}
+
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer));
+
+// Convert Map to array
+console.log(...question);
+
+// More methods
+console.log(question.entries());
+console.log(...question.keys());
+console.log(...question.values());
