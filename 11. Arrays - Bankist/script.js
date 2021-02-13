@@ -101,7 +101,7 @@ currenciesUnique.forEach(function (value, _, map) {
 // ================================================================================================================
 // The map method
 // ================================================================================================================
-
+/*
 const eurToUsd = 1.1;
 
 // const movementsUSD = movements.map(function(mov) {
@@ -118,3 +118,19 @@ const movementsDescription = movements.map((mov, i) =>
 );
 
 console.log(movementsDescription);
+*/
+
+// ================================================================================================================
+// The filter method
+// ================================================================================================================
+
+const deposits = movements.filter(function(mov) {
+  return mov > 0;
+})
+
+const withdrawals = movements.filter( mov => mov < 0);
+
+console.log(movements);
+console.log(deposits);
+console.log(withdrawals);
+
