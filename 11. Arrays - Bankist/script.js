@@ -123,7 +123,7 @@ console.log(movementsDescription);
 // ================================================================================================================
 // The filter method
 // ================================================================================================================
-
+/*
 const deposits = movements.filter(function(mov) {
   return mov > 0;
 })
@@ -133,4 +133,26 @@ const withdrawals = movements.filter( mov => mov < 0);
 console.log(movements);
 console.log(deposits);
 console.log(withdrawals);
+*/
 
+// ================================================================================================================
+// The reduce method
+// ================================================================================================================
+
+// accumilator -> value to be used in next iteration
+// 0 here is the starting value of accumilator
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  console.log(`Iteration ${i}: ${acc}`);
+  return acc + cur;
+}, 0);
+console.log(balance);
+
+const balance2 = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance2);
+
+// Maximum Value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
