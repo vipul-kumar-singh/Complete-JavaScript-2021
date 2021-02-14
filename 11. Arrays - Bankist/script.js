@@ -138,7 +138,7 @@ console.log(withdrawals);
 // ================================================================================================================
 // The reduce method
 // ================================================================================================================
-
+/*
 // accumilator -> value to be used in next iteration
 // 0 here is the starting value of accumilator
 const balance = movements.reduce(function (acc, cur, i, arr) {
@@ -156,3 +156,18 @@ const max = movements.reduce((acc, mov) => {
   else return mov;
 }, movements[0]);
 console.log(max);
+*/
+
+// ================================================================================================================
+// Chaining Methods
+// ================================================================================================================
+
+const eurToUsd = 1.1;
+
+//PIPELINE
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
