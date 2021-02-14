@@ -229,3 +229,13 @@ btnSort.addEventListener('click', function (e) {
   sorted = !sorted;
   displayMovements(currentAccount.movements, sorted);
 });
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI);
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+});

@@ -243,7 +243,7 @@ console.log(overalBalance, overalBalance2);
 // ================================================================================================================
 // Sorting arrays
 // ================================================================================================================
-
+/*
 // Strings
 const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 console.log(owners);
@@ -269,3 +269,29 @@ console.log(movements);
 // });
 movements.sort((a, b) => b - a);
 console.log(movements);
+*/
+
+// ================================================================================================================
+// More ways of creating and filling arrays
+// ================================================================================================================
+
+// 1. Using square brackets
+console.log([1, 2, 3, 4]);
+
+// 2. Using new keyword
+console.log(new Array(1, 2, 3, 4, 5, 6));
+
+// 3. Using array constructor and fill() method
+const x = new Array(7);
+const y = new Array(7);
+console.log(x, y);
+x.fill(1);
+y.fill(1, 3, 5);
+console.log(x, y);
+
+// 4. Array.from()
+const arr = Array.from({ length: 7 }, () => 1);
+console.log(arr);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
