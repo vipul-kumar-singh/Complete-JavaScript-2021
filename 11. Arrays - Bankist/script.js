@@ -194,7 +194,7 @@ console.log(movements.findIndex(element => element > 9999));
 // ================================================================================================================
 // some and every method
 // ================================================================================================================
-
+/*
 console.log(movements);
 console.log(movements.includes(-130));
 
@@ -203,3 +203,38 @@ console.log(anyDeposits);
 
 const allDeposits = movements.every(mov => mov > 1500);
 console.log(allDeposits);
+*/
+
+// ================================================================================================================
+// flat and flatMap method
+// ================================================================================================================
+
+// flat
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat());
+console.log(arrDeep.flat(2));
+
+const obj1 = {
+  arr: [1, 2, 3],
+};
+
+const obj2 = {
+  arr: [4, 5, 6],
+};
+
+const objs = [obj1, obj2];
+
+const overalBalance = objs
+  .map(obj => obj.arr)
+  .flat()
+  .reduce((acc, cur) => acc + cur, 0);
+
+// flatmap() = flat() + map()
+const overalBalance2 = objs
+  .flatMap(obj => obj.arr)
+  .reduce((acc, cur) => acc + cur, 0);
+
+console.log(overalBalance, overalBalance2);
