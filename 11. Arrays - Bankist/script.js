@@ -186,6 +186,20 @@ console.log(firstWithdrawal);
 // ================================================================================================================
 // The findIndex method
 // ================================================================================================================
-
+/*
 console.log(movements.findIndex(element => element > 2999));
 console.log(movements.findIndex(element => element > 9999));
+*/
+
+// ================================================================================================================
+// some and every method
+// ================================================================================================================
+
+console.log(movements);
+console.log(movements.includes(-130));
+
+const anyDeposits = movements.some(mov => mov > 1500);
+console.log(anyDeposits);
+
+const allDeposits = movements.every(mov => mov > 1500);
+console.log(allDeposits);
