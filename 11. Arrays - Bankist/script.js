@@ -208,7 +208,7 @@ console.log(allDeposits);
 // ================================================================================================================
 // flat and flatMap method
 // ================================================================================================================
-
+/*
 // flat
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat());
@@ -238,3 +238,34 @@ const overalBalance2 = objs
   .reduce((acc, cur) => acc + cur, 0);
 
 console.log(overalBalance, overalBalance2);
+*/
+
+// ================================================================================================================
+// Sorting arrays
+// ================================================================================================================
+
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners);
+console.log(owners.sort());
+console.log(owners);
+
+// Numbers
+console.log(movements);
+console.log(movements.sort());
+
+// Ascenfding
+// movements.sort((a,b) => {
+//   if(a > b) return 1;
+//   if(a < b) return -1;
+// });
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+// Descending
+// movements.sort((a,b) => {
+//   if(a > b) return -1;
+//   if(a < b) return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log(movements);
