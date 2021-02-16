@@ -357,7 +357,7 @@ console.log(+(2.345).toFixed(2));
 // ================================================================================================================
 // The Remainder Operator
 // ================================================================================================================
-
+/*
 console.log(5 / 2); // 5 = 2*2 + 1
 console.log(5 % 2);
 console.log(8 % 3);
@@ -372,3 +372,39 @@ function paintBg() {
     if (i % 2 === 0) row.style.backgroundColor = 'rgb(230, 230, 230)';
   });
 }
+*/
+
+// ================================================================================================================
+// Working with BigInt
+// ================================================================================================================
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+// Unsafe integers
+console.log(2 ** 53 + 0);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+// BigInt (ES 2020) - suffix n
+console.log(520153215252562152527896); // integer
+console.log(520153215252562152527896n); // bigint
+console.log(BigInt(48384302));
+
+// Arithmetic Operations
+console.log(10000n + 10000n);
+console.log(4625246288789621n + 8784154655545474n);
+
+const huge = 145248987841214n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+//comparison
+console.log(20n > 15);
+console.log(20n == 20);
+console.log(20n === 20);
+
+// typeof
+console.log(typeof 20n);
