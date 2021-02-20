@@ -33,7 +33,7 @@ document.addEventListener('keydown', function (e) {
 // ================================================================================================================
 // Selecting, Creating and Deleting Elements
 // ================================================================================================================
-
+/*
 // Selecting elements
 console.log(document.documentElement);
 console.log(document.head);
@@ -122,3 +122,43 @@ logo.classList.contains('c');
 
 // Don't use because it will override all the classes
 // logo.className = 'jonas';
+*/
+
+// ================================================================================================================
+// Implementing Smooth Scrolling
+// ================================================================================================================
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  //Scrolling
+  // window.scrollTo(
+  // s1coords.left + window.pageXOffset,
+  // s1coords.top + window.pageYOffset
+  // );
+
+  // Smooth Scrolling - Old Way
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+
+  // Smooth Scrolling - Modern Way
+  section1.scrollIntoView({
+    behavior: 'smooth',
+  });
+});
