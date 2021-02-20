@@ -162,3 +162,24 @@ btnScrollTo.addEventListener('click', function (e) {
     behavior: 'smooth',
   });
 });
+
+// ================================================================================================================
+// Types of Events and Event Handlers
+// ================================================================================================================
+// https://developer.mozilla.org/en-US/docs/Web/Events
+
+const h1 = document.querySelector('h1');
+
+const alertH1 = function (e) {
+  alert('addEventListener: Great! You are reading the heading');
+};
+
+// mouseenter (hover) - new way
+h1.addEventListener('mouseenter', alertH1);
+
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+// old way
+// h1.onmouseenter = function(e) {
+// alert('addEventListener: Great! You are reading the heading');
+// }
