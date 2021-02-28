@@ -98,6 +98,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
+  // Instance Methods
   // Methods will be added to .prototype property
   calcage() {
     console.log(2037 - this.birthYear);
@@ -119,6 +120,11 @@ class PersonCl {
 
   get fullName() {
     return this._fullName;
+  }
+
+  // Static method
+  static hello() {
+    console.log('Hello 📞');
   }
 }
 
@@ -162,3 +168,15 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+// ================================================================================================================
+// Static Methods
+// ================================================================================================================
+
+PersonCl.hey = function () {
+  console.log('Hey there 👋');
+  console.log(this);
+};
+
+PersonCl.hey();
+PersonCl.hello();
