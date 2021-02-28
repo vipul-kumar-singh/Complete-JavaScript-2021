@@ -258,6 +258,7 @@ console.dir(Student.prototype.constructor);
 // Inheritance Between Classes: ES6 Classes
 // ================================================================================================================
 
+/*
 class PersonCl {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
@@ -321,3 +322,36 @@ console.log(martha);
 
 martha.introduce();
 martha.calcage();
+*/
+
+// ================================================================================================================
+// Inheritance Between Classes: Object.create
+// ================================================================================================================
+
+const PersonProto = {
+  calcage() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}.`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Information Technology');
+jay.introduce();
+jay.calcage();
