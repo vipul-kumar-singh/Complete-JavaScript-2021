@@ -3,7 +3,7 @@
 // ================================================================================================================
 // Constructor Functions and the new Operator
 // ================================================================================================================
-
+/*
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
@@ -82,3 +82,40 @@ const h1 = document.querySelector('h1');
 console.dir(h1);
 
 console.dir(x => x + 1);
+*/
+
+// ================================================================================================================
+// ES6 Classes
+// ================================================================================================================
+
+// class expression
+// const PersonCl = class {};
+
+// class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods will be added to .prototype property
+  calcage() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+
+const jessica = new PersonCl('Jessica', 1996);
+console.log(jessica);
+jessica.calcage();
+
+console.log(jessica.__proto__ === PersonCl.prototype);
+
+// PersonCl.prototype.greet = function() {
+//     console.log(`Hey ${this.firstName}`);
+// }
+
+jessica.greet();
