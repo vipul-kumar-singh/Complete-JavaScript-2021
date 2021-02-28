@@ -362,39 +362,50 @@ jay.calcage();
 // ================================================================================================================
 
 class Account {
+  // 1. Public fields (instances)
+  locale = navigator.language;
+
+  // 2. Private fields (Limited Browser Support)
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
 
-    //protected property
-    this.pin = pin;
-    this._movements = [];
+    this.#pin = pin;
 
-    this.locale = navigator.language;
+    //protected property
+    // this.pin = pin;
+    // this._movements = [];
+
+    // this.locale = navigator.language;
 
     console.log(`Thanks for opening an account, ${owner}.`);
   }
 
+  // 3. Public Methods
   // Public Interfaces
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
 
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
   }
 
   withdraw(val) {
     this.deposit(-val);
   }
 
-  _approveLoan(val) {
-    return true;
+  requestLoan(val) {
+    if (this.#approveLoan(val)) this.deposit(val);
+    console.log('Loan approved');
   }
 
-  requestLoan(val) {
-    if (this._approveLoan(val)) this.deposit(val);
-    console.log('Loan approved');
+  // 4. Private Methods (No Browser support as of now)
+  #approveLoan(val) {
+    return true;
   }
 }
 
@@ -408,7 +419,7 @@ acc1.withdraw(140);
 acc1.requestLoan(1000);
 
 //will work
-acc1._approveLoan(1000);
+// acc1._approveLoan(1000);
 
 console.log(acc1);
 console.log(acc1.pin);
@@ -417,4 +428,12 @@ console.log(acc1.pin);
 // Encapsulation: Protected Properties and Methods
 // ================================================================================================================
 
+console.log(acc1.getMovements());
+
+// ================================================================================================================
+// Encapsulation: Private Class Fields and Methods
+// ================================================================================================================
+
+// console.log(acc1.#movements);
+// console.log(acc1.#approveLoan(1000));
 console.log(acc1.getMovements());
