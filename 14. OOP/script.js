@@ -392,15 +392,18 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   requestLoan(val) {
     if (this.#approveLoan(val)) this.deposit(val);
     console.log('Loan approved');
+    return this;
   }
 
   // 4. Private Methods (No Browser support as of now)
@@ -436,4 +439,11 @@ console.log(acc1.getMovements());
 
 // console.log(acc1.#movements);
 // console.log(acc1.#approveLoan(1000));
+console.log(acc1.getMovements());
+
+// ================================================================================================================
+// Chaining methods
+// ================================================================================================================
+
+acc1.deposit(300).deposit(500).withdraw(150).requestLoan(25000).withdraw(5000);
 console.log(acc1.getMovements());
