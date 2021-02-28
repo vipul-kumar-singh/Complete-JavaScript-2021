@@ -87,7 +87,7 @@ console.dir(x => x + 1);
 // ================================================================================================================
 // ES6 Classes
 // ================================================================================================================
-
+/*
 // class expression
 // const PersonCl = class {};
 
@@ -180,3 +180,32 @@ PersonCl.hey = function () {
 
 PersonCl.hey();
 PersonCl.hello();
+*/
+
+// ================================================================================================================
+// Object.create
+// ================================================================================================================
+
+const PersonProto = {
+  calcage() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+
+steven.name = 'Steven';
+steven.birthYear = 2002;
+steven.calcage();
+
+console.log(steven.__proto__ === PersonProto);
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1979);
+sarah.calcage();
