@@ -130,7 +130,7 @@ console.log(request);
 // ================================================================================================================
 // Consuming Promises
 // ================================================================================================================
-
+/*
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
   //   countriesContainer.style.opacity = 1;
@@ -176,4 +176,53 @@ const getCountryData = function (country) {
 
 btn.addEventListener('click', function () {
   getCountryData('portugal');
+});
+*/
+
+// ================================================================================================================
+// Refactoring
+// ================================================================================================================
+
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+};
+
+const getJSON = function (url, errorMsg = 'Something went wrong!') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+
+    return response.json();
+  });
+};
+
+const getCountryData = function (country) {
+  getJSON(
+    `https://restcountries.eu/rest/v2/name/${country}`,
+    'Country not found'
+  )
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders[0];
+
+      if (!neighbour) throw new Error('No neighbour found!');
+
+      return getJSON(
+        `https://restcountries.eu/rest/v2/alpha/${neighbour}`,
+        'Country not found'
+      );
+    })
+    .then(data => renderCountry(data, 'neighbour'))
+    .catch(err => {
+      console.log('In catch Block');
+      console.error(`${err} 🔥🔥🔥`);
+      renderError(`Something went wrong 🔥🔥 ${err.message}. Try again!`);
+    })
+    .finally(() => {
+      console.log('In finally Block');
+      countriesContainer.style.opacity = 1;
+    });
+};
+
+btn.addEventListener('click', function () {
+  getCountryData('australia');
 });
