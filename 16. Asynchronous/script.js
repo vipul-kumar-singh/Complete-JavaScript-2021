@@ -182,7 +182,7 @@ btn.addEventListener('click', function () {
 // ================================================================================================================
 // Refactoring
 // ================================================================================================================
-
+/*
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
 };
@@ -226,3 +226,18 @@ const getCountryData = function (country) {
 btn.addEventListener('click', function () {
   getCountryData('australia');
 });
+*/
+
+// ================================================================================================================
+// Event Loop
+// ================================================================================================================
+
+// synchronized >> micro task >> callback
+
+console.log('Test Start'); // synchronized
+setTimeout(() => console.log('0 sec timer'), 0); // callback queue
+
+// build a promise that immediately resolves (gives success value)
+Promise.resolve('Resolved promise 1').then(res => console.log(res)); // micro task queue
+
+console.log('Test End'); // synchronized
