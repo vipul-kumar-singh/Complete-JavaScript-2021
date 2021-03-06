@@ -133,30 +133,43 @@ console.log(request);
 
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
-//   countriesContainer.style.opacity = 1;
+  //   countriesContainer.style.opacity = 1;
 };
 
 // json() is also asynchronous and returns Promise
 const getCountryData = function (country) {
   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+
+      if (!response.ok)
+        throw new Error(`Country not found (${response.status})`);
+
+      return response.json();
+    })
     .then(data => {
       renderCountry(data[0]);
-      const neighbour = data[0].borders[0];
+      // const neighbour = data[0].borders[0];
+      const neighbour = 'ABC';
 
       if (!neighbour) return;
 
       return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok)
+        throw new Error(`Country not found (${response.status})`);
+
+      return response.json();
+    })
     .then(data => renderCountry(data, 'neighbour'))
     .catch(err => {
-      console.log("In catch Block");
+      console.log('In catch Block');
       console.error(`${err} 🔥🔥🔥`);
       renderError(`Something went wrong 🔥🔥 ${err.message}. Try again!`);
     })
     .finally(() => {
-      console.log("In finally Block");
+      console.log('In finally Block');
       countriesContainer.style.opacity = 1;
     });
 };
