@@ -231,7 +231,7 @@ btn.addEventListener('click', function () {
 // ================================================================================================================
 // Event Loop
 // ================================================================================================================
-
+/*
 // synchronized >> micro task >> callback
 
 console.log('Test Start'); // synchronized
@@ -241,3 +241,52 @@ setTimeout(() => console.log('0 sec timer'), 0); // callback queue
 Promise.resolve('Resolved promise 1').then(res => console.log(res)); // micro task queue
 
 console.log('Test End'); // synchronized
+*/
+
+// ================================================================================================================
+// Building a simple promise
+// ================================================================================================================
+
+// promise constructor accepts executor function which again have two functions in parameters - resolve and reject
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is happening 🔮');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN 💰');
+    } else {
+      reject(new Error('You lost your money 💩'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+// Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(1)
+  .then(() => {
+    console.log('1 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('2 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('3 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('4 second passed');
+    return wait(1);
+  });
+
+
+// Static Methods of Promise
+Promise.resolve('abc').then(x => console.log(x));
+Promise.reject(new Error('Problem!')).then(x => console.error(x));
