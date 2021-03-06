@@ -67,7 +67,7 @@ const renderCountry = function (data, className = '') {
       `;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  //   countriesContainer.style.opacity = 1;
 };
 /*
 const getCountryAndNeighbour = function (country) {
@@ -131,8 +131,12 @@ console.log(request);
 // Consuming Promises
 // ================================================================================================================
 
-// json() is also asynchronous and returns Promise
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+//   countriesContainer.style.opacity = 1;
+};
 
+// json() is also asynchronous and returns Promise
 const getCountryData = function (country) {
   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
     .then(response => response.json())
@@ -145,7 +149,18 @@ const getCountryData = function (country) {
       return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
     })
     .then(response => response.json())
-    .then(data => renderCountry(data, 'neighbour'));
+    .then(data => renderCountry(data, 'neighbour'))
+    .catch(err => {
+      console.log("In catch Block");
+      console.error(`${err} 🔥🔥🔥`);
+      renderError(`Something went wrong 🔥🔥 ${err.message}. Try again!`);
+    })
+    .finally(() => {
+      console.log("In finally Block");
+      countriesContainer.style.opacity = 1;
+    });
 };
 
-getCountryData('portugal');
+btn.addEventListener('click', function () {
+  getCountryData('portugal');
+});
