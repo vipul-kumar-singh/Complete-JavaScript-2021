@@ -379,7 +379,6 @@ const whereAmI = async function () {
     if (!resGeo.ok) throw new Error('Problem getting location data');
 
     const dataGeo = await resGeo.json();
-    console.log(dataGeo);
 
     // Country data
     const res = await fetch(
@@ -389,23 +388,27 @@ const whereAmI = async function () {
     if (!res.ok) throw new Error('Problem getting country');
 
     const data = await res.json();
-    console.log(data);
     renderCountry(data[data.length - 1]);
+
+    return `You are in ${dataGeo.city}, ${dataGeo.country}`;
   } catch (err) {
     console.error(`${err} 🔥`);
     renderError(`🔥 ${err.message}`);
+
+    // Reject promise returned from async function
+    throw err;
   }
 };
 
-whereAmI();
-whereAmI();
-whereAmI();
-console.log('First');
+// whereAmI();
+// whereAmI();
+// whereAmI();
+// console.log('First');
 
 // ================================================================================================================
 // Error Handling with try...catch
 // ================================================================================================================
-
+/*
 try {
   let y = 1;
   const x = 2;
@@ -413,3 +416,27 @@ try {
 } catch (err) {
   console.error(err.message);
 }
+*/
+
+// ================================================================================================================
+// Returning values from Async Functions
+// ================================================================================================================
+
+console.log('1: Will get location');
+// const city = whereAmI();
+// console.log(city);
+
+// whereAmI()
+//   .then(city => console.log(`2: ${city}`))
+//   .catch(err => console.error(`2: ${err.message} 💥`))
+//   .finally(() => console.log('3: Finished getting location'));
+
+(async function () {
+  try {
+    const city = await whereAmI();
+    console.log(`2: ${city}`);
+  } catch (err) {
+    console.error(`2: ${err.message} 💥`);
+  }
+  console.log('3: Finished getting location');
+})();
