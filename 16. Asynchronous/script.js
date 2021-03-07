@@ -130,12 +130,12 @@ console.log(request);
 // ================================================================================================================
 // Consuming Promises
 // ================================================================================================================
-/*
+
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
-  //   countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
-
+/*
 // json() is also asynchronous and returns Promise
 const getCountryData = function (country) {
   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
@@ -368,23 +368,48 @@ const getPosition = function () {
 
 // here await stops the execution until fetch completed, nut it is non blocking as it is async function
 const whereAmI = async function () {
-  // Geolocation
-  const pos = await getPosition();
-  const { latitude: lat, longitude: lng } = pos.coords;
+  try {
+    // Geolocation
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
 
-  // Reverse geocoding
-  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-  const dataGeo = await resGeo.json();
-  console.log(dataGeo);
+    // Reverse geocoding
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
 
-  // Country data
-  const res = await fetch(
-    `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
-  );
-  const data = await res.json();
-  console.log(data);
-  renderCountry(data[data.length - 1]);
+    if (!resGeo.ok) throw new Error('Problem getting location data');
+
+    const dataGeo = await resGeo.json();
+    console.log(dataGeo);
+
+    // Country data
+    const res = await fetch(
+      `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
+    );
+
+    if (!res.ok) throw new Error('Problem getting country');
+
+    const data = await res.json();
+    console.log(data);
+    renderCountry(data[data.length - 1]);
+  } catch (err) {
+    console.error(`${err} 🔥`);
+    renderError(`🔥 ${err.message}`);
+  }
 };
 
 whereAmI();
+whereAmI();
+whereAmI();
 console.log('First');
+
+// ================================================================================================================
+// Error Handling with try...catch
+// ================================================================================================================
+
+try {
+  let y = 1;
+  const x = 2;
+  x = 3;
+} catch (err) {
+  console.error(err.message);
+}
