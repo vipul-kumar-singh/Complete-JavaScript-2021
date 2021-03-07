@@ -67,7 +67,7 @@ const renderCountry = function (data, className = '') {
       `;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  //   countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 /*
 const getCountryAndNeighbour = function (country) {
@@ -317,6 +317,7 @@ const getPosition = function () {
 */
 
 // Method 2
+/*
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -353,3 +354,37 @@ const whereAmI = function () {
 };
 
 btn.addEventListener('click', whereAmI);
+*/
+
+// ================================================================================================================
+// Consuming Promises with Async/Await
+// ================================================================================================================
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+// here await stops the execution until fetch completed, nut it is non blocking as it is async function
+const whereAmI = async function () {
+  // Geolocation
+  const pos = await getPosition();
+  const { latitude: lat, longitude: lng } = pos.coords;
+
+  // Reverse geocoding
+  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+  const dataGeo = await resGeo.json();
+  console.log(dataGeo);
+
+  // Country data
+  const res = await fetch(
+    `https://restcountries.eu/rest/v2/name/${dataGeo.country}`
+  );
+  const data = await res.json();
+  console.log(data);
+  renderCountry(data[data.length - 1]);
+};
+
+whereAmI();
+console.log('First');
