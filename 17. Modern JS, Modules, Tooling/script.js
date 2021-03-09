@@ -67,7 +67,7 @@ console.log(ShoppingCart2.shippingCost);
 // ================================================================================================================
 // CommonJS Modules
 // ================================================================================================================
-
+/*
 // Export (With Export object) - Internal Working
 export.addToCart = function(product, quantity) {
   cart.push({product, quantity});
@@ -76,3 +76,38 @@ export.addToCart = function(product, quantity) {
 
 // Import
 const {addToCart} = require('./shoppingCart.js');
+*/
+
+// ================================================================================================================
+// Introduction To NPM
+// ================================================================================================================
+
+// 1. Version check
+// npm -v
+
+// 2. Initialize in project
+// npm init
+
+// 3. install libraries
+// npm install leaflet
+// npm i lodash-es
+
+// 4. To install dependencies from package.json
+// npm install
+
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  cart: [
+    { product: 'bread', quantiy: 5 },
+    { product: 'pizza', quantiy: 5 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+const stateDeepClone = cloneDeep(state);
+
+state.user.loggedIn = false;
+console.log(stateClone);
+console.log(stateDeepClone);
