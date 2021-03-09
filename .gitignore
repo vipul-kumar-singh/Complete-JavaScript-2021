@@ -6,3 +6,9 @@ complete-javascript-course-master
 
 ### Node Modules ###
 17.*Modern*JS,*Modules,*Tooling/node_modules/  
+
+### Distributions ###
+17.*Modern*JS,*Modules,*Tooling/dist/
+
+### Cache ###
+17.*Modern*JS,*Modules,*Tooling/.cache/  

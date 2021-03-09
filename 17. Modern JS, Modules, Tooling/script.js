@@ -1,7 +1,7 @@
 // ================================================================================================================
 // Exporting and Importing in ES6 modules
 // ================================================================================================================
-/*
+
 //// Importing module
 // import { addToCart, totalPrice as price, tq } from './shoppingCart.js'; //named import
 // console.log(shippingCost // will not work);
@@ -27,7 +27,6 @@ add('pizza', 2);
 add('bread', 5);
 add('apples', 4);
 console.log(cart);
-*/
 
 // ================================================================================================================
 // Module Pattern (Not used in modern development)
@@ -95,7 +94,10 @@ const {addToCart} = require('./shoppingCart.js');
 // 4. To install dependencies from package.json
 // npm install
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+// import using parcel
+import cloneDeep from 'lodash-es';
 
 const state = {
   cart: [
@@ -111,3 +113,28 @@ const stateDeepClone = cloneDeep(state);
 state.user.loggedIn = false;
 console.log(stateClone);
 console.log(stateDeepClone);
+
+// ================================================================================================================
+// Bundling With Parcel and NPM Scripts
+// ================================================================================================================
+
+// 1. Install parcel
+// npm i parcel@1.12.3 --save-dev
+
+// 2.1 Build and Run project (using npx with argument as entry point of project)
+// npx parcel index.html
+
+// Hot module Reloading
+// Whenever we change any module, then new modified module will be injected by parcel to browser
+// Maintains state of application
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+// 2.2 Build and Run project (using npm script)
+// Add script in package.json
+// npm run start
+
+// 3. Build project (using npm script)
+// npm build
