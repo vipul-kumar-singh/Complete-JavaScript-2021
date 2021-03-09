@@ -138,3 +138,17 @@ if (module.hot) {
 
 // 3. Build project (using npm script)
 // npm build
+
+// ================================================================================================================
+// Configuring Babel and Polyfilling
+// ================================================================================================================
+
+// Parcel by default uses babel to convert es6+ code to es5
+
+// Additonal Config Eg.
+import 'core-js/stable'
+// import 'core-js/stable/array/find';
+// import 'core-js/stable/promise';
+
+// Polifilling async functions
+import 'regenerator-runtime/runtime';
