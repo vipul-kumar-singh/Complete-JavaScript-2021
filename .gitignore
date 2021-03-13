@@ -5,10 +5,13 @@
 complete-javascript-course-master
 
 ### Node Modules ###
-17.*Modern*JS,*Modules,*Tooling/node_modules/  
+17.*Modern*JS,*Modules,*Tooling/node_modules/
+18.*Forkify/node_modules/  
 
 ### Distributions ###
 17.*Modern*JS,*Modules,*Tooling/dist/
+18.*Forkify/dist/
 
 ### Cache ###
 17.*Modern*JS,*Modules,*Tooling/.cache/  
+18.*Forkify/.parcel-cache
