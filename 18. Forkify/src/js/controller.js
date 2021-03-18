@@ -12,6 +12,7 @@ import { async } from 'regenerator-runtime/runtime';
 import { MODAL_CLOSE_SEC } from './config.js';
 
 // https://forkify-api.herokuapp.com/v2
+// https://forkify-v2.netlify.app/
 
 // if (module.hot) {
 //   module.hot.accept();
@@ -111,9 +112,15 @@ const controlAddRecipe = async function (newRecipe) {
     // Success Message
     addRecipeView.renderMessage();
 
+    // Render Bookmark view
+    bookmarksView.render(model.state.bookmarks);
+
+    // Change ID in Url
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+
     // Close form window
     setTimeout(() => {
-      // addRecipeView.toggleWindow();
+      addRecipeView.toggleWindow();
     }, MODAL_CLOSE_SEC * 1000);
   } catch (err) {
     console.error('🔥', err);
