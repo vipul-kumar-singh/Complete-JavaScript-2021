@@ -1,0 +1,12 @@
+1. Delete .parcel-cache and dist folder
+2. If using parcel 2 then modify package.json
+3. npm run build
+4. Use Netlify or Surge to deploy for free
+
+
+Netlify
+---------
+1. Create a free account
+2. Drag and Drop dist folder to Netlify
+3. Click on site-setting
+4. Choose unique name
